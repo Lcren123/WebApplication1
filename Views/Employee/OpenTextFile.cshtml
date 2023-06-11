@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "OpenTextFile";
+    var result = "";
+    Array userData = null;
+    char[] delimiterChar = { ',' };
+
+    var dataFile = Server.MapPath("~/App_Data/Fruits and veggie.txt");
+
+    if (File.Exists(dataFile))
+    {
+        userData = File.ReadAllLines(dataFile);
+        if (userData == null)
+        {
+            // Empty file.
+            result = "The file is empty.";
+        }
+    }
+    else
+    {
+        // File does not exist.
+        result = "The file does not exist.";
+    }
+}
+<!DOCTYPE html>
+<button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "Employee")'">Home</button>
+<html>
+<head>
+    <title>Reading Data from a File</title>
+</head>
+
+<body>
+    <h1>Reading Data from a File</h1>
+    <div class="container">
+        <div class="column">
+            @foreach (string dataLine in userData)
+            {
+                foreach (string dataItem in dataLine.Split(delimiterChar))
+                {
+                    <div class="col">
+                        @dataItem
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</body>
+</html>
+

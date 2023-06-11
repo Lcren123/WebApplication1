@@ -1,0 +1,13 @@
+Fruits:
+1. Apple
+2. Banana
+3. Orange
+4. Strawberry
+5. Watermelon
+
+Vegetables:
+1. Carrot
+2. Broccoli
+3. Tomato
+4. Spinach
+5. Cucumber
